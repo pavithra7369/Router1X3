@@ -33,11 +33,15 @@ Placement: In the 1x3 router design, you might have a FIFO at the input to buffe
 <summary>  FSM
 </summary>
 
-
+Function: The FSM generates control signals that dictate the operation of various components within the router, such as the Register, Synchronizer, and FIFOs.
+Purpose: These control signals ensure that data is correctly processed, routed, and stored in the appropriate FIFO based on the current state of the router.
 
 
 
 
 </details><details>
-<summary>  Refister
+<summary>  Register
 </summary>
+
+Function: Registers are used to store control signals, routing decisions, or intermediate data. They can hold the state of the router or store routing decisions.
+Placement: Registers can be placed within the routing logic to hold the decision of which output to send the data to or to hold the data temporarily during routing.
