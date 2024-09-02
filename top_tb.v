@@ -66,7 +66,7 @@ task pktm_gen_5; // packet generation payload 5
         for(i = 0; i < payloadlen; i = i + 1) begin
             wait(!busy)
             begin  
-                @(negedge clk);
+                @(negedge clk)
                 payload_data = $random % 256;
                 datain = payload_data;
                 parity = parity ^ datain;
@@ -74,12 +74,12 @@ task pktm_gen_5; // packet generation payload 5
         end					
         wait(!busy)
         begin
-            @(negedge clk);
+            @(negedge clk)
             packet_valid = 0;				
             datain = parity;
         end  
         repeat(2)
-            @(negedge clk);
+            @(negedge clk)
         read_enb_2 = 1'b1;
     
     end
@@ -92,18 +92,18 @@ task pktm_gen_14; // packet generation payload 14
         parity = 0;
         wait(!busy)
         begin
-            @(negedge clk);
+            @(negedge clk)
             payloadlen = 14;
             packet_valid = 1'b1;
             header = {payloadlen, 2'b01};
             datain = header;
             parity = parity ^ datain;
         end
-        @(negedge clk);
+        @(negedge clk)
         for(i = 0; i < payloadlen; i = i + 1) begin
             wait(!busy)
             begin  
-                @(negedge clk);
+                @(negedge clk)
                 payload_data = $random % 256;
                 datain = payload_data;
                 parity = parity ^ datain;
@@ -111,12 +111,12 @@ task pktm_gen_14; // packet generation payload 14
         end					
         wait(!busy)
         begin
-            @(negedge clk);
+            @(negedge clk)
             packet_valid = 0;				
             datain = parity;
         end  
         repeat(2)
-            @(negedge clk);
+            @(negedge clk)
         read_enb_1 = 1'b1;
       
     end
@@ -129,7 +129,7 @@ task pktm_gen_16; // packet generation payload 16
         parity = 0;
         wait(!busy)
         begin
-            @(negedge clk);
+            @(negedge clk)
             payloadlen = 16;
             packet_valid = 1'b1;
             header = {payloadlen, 2'b00};
@@ -140,7 +140,7 @@ task pktm_gen_16; // packet generation payload 16
         for(i = 0; i < payloadlen; i = i + 1) begin
             wait(!busy)
             begin  
-                @(negedge clk);
+                @(negedge clk)
                 payload_data = $random % 256;
                 datain = payload_data;
                 parity = parity ^ datain;
@@ -148,12 +148,12 @@ task pktm_gen_16; // packet generation payload 16
         end					
         wait(!busy)
         begin
-            @(negedge clk);
+            @(negedge clk)
             packet_valid = 0;				
             datain = parity;
         end  
         repeat(2)
-            @(negedge clk);
+            @(negedge clk)
         read_enb_0 = 1'b1;
        
     end
